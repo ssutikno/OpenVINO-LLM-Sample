@@ -1,0 +1,71 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ── Virtual environment ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Environment / secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+*.env
+
+# ── Model data (multi-GB downloads, not committed) ────────────────────────────
+models/
+
+# ── OVMS binary package ───────────────────────────────────────────────────────
+# Keep: setupvars.ps1, setupvars.bat, install_ovms_service.bat, LICENSE
+# Ignore: runtime binaries, bundled Python, and third-party license dumps
+ovms/*.dll
+ovms/*.exe
+ovms/*.cat
+ovms/python/
+ovms/thirdparty-licenses/
+
+# ── OVMS generated / temp configs ────────────────────────────────────────────
+ovms/multi-model-config.json
+ovms/tmp-multi-config.json
+
+# ── Runtime logs ─────────────────────────────────────────────────────────────
+*.log
+ovms_startup.log
+
+# ── SQLite caches and temp databases ─────────────────────────────────────────
+tools/model_catalog_cache.db
+_tmp_webui.db
+*.db-shm
+*.db-wal
+
+# ── Stale / scratch directories ──────────────────────────────────────────────
+tools/_dt_component/
+
+# ── OS artefacts ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ─────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+*.zip
+*.tar
+*.tar.gz

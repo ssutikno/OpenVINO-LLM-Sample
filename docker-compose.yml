@@ -1,0 +1,24 @@
+# docker-compose.yml — Open WebUI only.
+# The OpenVINO Model Server (OVMS) runs natively on Windows (start-ovms.ps1)
+# so it can access the Intel GPU directly via the Windows WDDM driver,
+# bypassing the WSL2 GPU-PV limitation that prevents USM Host allocation.
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:latest
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    environment:
+      # OVMS uses /v3 (not /v1) as its OpenAI-compatible API base
+      OPENAI_API_BASE_URL: http://host.docker.internal:8000/v3
+      OPENAI_API_KEY: "EMPTY"
+      ENABLE_OLLAMA_API: "false"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui-data:/app/backend/data
+    restart: unless-stopped
+
+volumes:
+  open-webui-data:
